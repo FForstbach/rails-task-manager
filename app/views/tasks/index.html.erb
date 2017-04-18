@@ -1,0 +1,19 @@
+<h1 class="text-center">My Tasks</h1>
+<div class="container">
+  <div class="row">
+    <p><% @tasks.each do |task| %></p>
+      <div class="col-lg-8">
+        <table>
+        <tr>
+        <td><%= "#{task.name} - Done? #{task.done}" %></td>
+        </tr>
+        </table>
+        <%= link_to "Show", task_path(task) %>
+        <%= link_to "Edit", edit_task_path(task) %>
+        <%= link_to "Delete", tasks_destroy_path(task), method: :delete %>
+      <% end %>
+      <hr>
+      <%= link_to "Create new Task", tasks_new_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
